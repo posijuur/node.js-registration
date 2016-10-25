@@ -1,0 +1,10 @@
+{
+	"dependencies" : {
+		"express": "4.x",
+		"cookie-parser": "1.x",
+		"cookie-session": "1.x",
+		"body-parser": "1.x",
+		"passport" : "0.x", 		
+		"passport-local" : "1.x"	
+	}
+}

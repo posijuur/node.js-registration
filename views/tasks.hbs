@@ -1,0 +1,17 @@
+<h2>Список задач</h2>
+
+<ul class="list-group list-group__size">
+{{#each tasks}}
+	<li class="list-group-item">
+		<form id="4" method="POST">
+			<input id="5" type="checkbox" name="delete" value="{{id}}">
+			<p>{{task}}</p>
+			<input id="6" class="input" type="text" name="text" value="{{task}}">
+			<input id="7" type="checkbox" name="change" value="{{id}}">
+			<input id="8" class="btn btn-info" type="submit" name="submit" value="Готово">
+		</form>
+	</li>
+{{/each}}
+</ul>
+
+

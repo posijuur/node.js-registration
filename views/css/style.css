@@ -1,0 +1,12 @@
+.list-group__size {
+	margin: auto;
+	width: 40%;
+}
+
+.input {
+	display: block;
+	margin: auto;
+	width: 70%;
+	border: 0;
+	border-bottom: 3px solid blue;
+}

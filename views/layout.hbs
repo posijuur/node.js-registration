@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>lesson5</title>
+	<link rel="stylesheet" href="css/reset.css">
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+</head>
+<body>
+	<h1>TODO manager</h1>
+
+<!-- три скобки, не экранировать HTML! -->
+{{{content}}}
+
+<h2>Добавить задачу</h2>
+
+{{#if error}}<h2>{{error}}</h2>{{/if}}
+
+<form method="POST" id="1">
+	Задача: <input id="3" type="text" name="task">
+	<input id="2" type="submit" value="Добавить">
+</form>
+
+&copy; Школа Программирования
+<script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+</body>
+</html>
+
