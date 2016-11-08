@@ -3,9 +3,12 @@ var app = express();
 
 var Sync = require('sync');
 
-var registrate = require('./models/tasks');
-
 var path = require('path');
+
+var mysql = require('mysql');
+// var config = require('./config');
+// var pool = mysql.createPool(config.db);
+var registrate = require('./models/tasks');
 
 // parses request cookies to req.cookies
 var cookieParser = require('cookie-parser');
@@ -14,6 +17,7 @@ app.use(cookieParser());
 // parses json, x-www-form-urlencoded, and multipart/form-data
 var bodyParser = require('body-parser');
 app.use(bodyParser());
+// app.use(bodyParser().urlencoded({extended: true})); -- best parser
 
 // use req.session as data store
 var session = require('cookie-session');
@@ -74,23 +78,6 @@ passport.use(new LocalStrategy(
 passport.serializeUser(function(user, done) {
 	setTimeout(function() {
 	console.log('username: '+userNameLocal);
-	// registrate.searchUser(username, function(err, result) {
-	// 	console.log('searchUser!!!!');
-	// 	if (err) {
-	// 		console.log('searchUser');
-	// 		connection.release();
-	// 		throw err;
-	// 	}
-	// 	console.log(result);
-	// 	console.log(result.RowDataPacket);
-	// 	// console.log(result.RowDataPacket.login);
-	// 	console.log(result[0]);
-	// 	console.log(result[0].login);
-	// 	console.log('result111: ' + result);
-	// 	console.log('result! '+ result.login);
-		
-	// done(null, result[0].login);
-	// });
 	done(null, userNameLocal);
 }, 2000);
 });
@@ -134,6 +121,14 @@ app.post('/register', function(req, res) {
 });
 
 var mustBeAuthenticated = function (req, res, next) {
+	// if (req.isAuthenticated()) {
+	// 	next();
+	// } else if(){
+	// 	// так если есть кука,то проверить ее логин и пас в базе данных и если такой есть, 
+	// 	// то userNameLocal = логин и отправить на логин ин
+	// } else {
+	// 	res.redirect('/');
+	// }
 	req.isAuthenticated() ? next() : res.redirect('/');
 };
 
@@ -147,7 +142,7 @@ app.get('/user', function(req, res) {
 		console.log("req.session" + req.session);
 		registrate.listDateUser(req.session.passport.user, function(err, tasks) {
 			if (err) 
-				console.log('fffffffffff:' + err);;
+				console.log('fffffffffff:' + err);
 			res.render(
 				'tasks.hbs', 
 				{tasks: tasks},

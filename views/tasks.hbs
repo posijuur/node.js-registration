@@ -1,14 +1,20 @@
-<h2>Список задач</h2>
+<h2 class="title-task">Список задач</h2>
 
 <ul class="list-group list-group__size">
 {{#each tasks}}
 	<li class="list-group-item">
+		<span class="glyphicon glyphicon-remove"></span>
+		<span class="glyphicon glyphicon-pencil"></span>
+		
 		<form id="4" method="POST">
-			<input id="5" type="checkbox" name="delete" value="{{id}}">
-			<p>{{task}}</p>
-			<input id="6" class="input" type="text" name="text" value="{{task}}">
-			<input id="7" type="checkbox" name="change" value="{{id}}">
-			<input id="8" class="btn btn-info" type="submit" name="submit" value="Готово">
+			<input class="input-delete" id="5" type="checkbox" name="delete" value="{{id}}">
+			<p class="name-task">{{task}}</p>
+			<div class="wrap-input">
+				<input class="input-text" id="6"  type="text" name="text" value="{{task}}">
+				<input class="input-change" id="7" type="checkbox" name="change" value="{{id}}">
+				<input class="btn btn-info" id="8" type="submit" name="submit" value="Готово">
+			</div>
+			
 		</form>
 	</li>
 {{/each}}

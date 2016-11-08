@@ -1,12 +1,83 @@
+body {
+	padding-left: 20px;
+	text-align: center;
+}
+
+.form-login {
+	margin: auto;
+	margin-top: 20px;
+	width: 20%;
+}
+
+.btn-success {
+	margin-top: 9px;
+}
+
+.wrap-form {
+	width: 25%;
+	text-align: center;
+}
+
+.name-task {
+	text-align: left;
+}
+
+.title-task {
+	font-size: 25px;
+	text-align: center;
+	color: #87A9C3;
+}
+
+.title-task_mod {
+	font-size: 30px;
+	text-align: left;
+	color: #F1A3A3;
+}
+
 .list-group__size {
 	margin: auto;
 	width: 40%;
 }
 
-.input {
+.input-text {
 	display: block;
 	margin: auto;
 	width: 70%;
 	border: 0;
 	border-bottom: 3px solid blue;
+	outline: none;
+}
+
+/* .wrap-input .input-text:focus {
+	outline: none;
+	border-bottom: 3px solid blue;
+} */
+
+.wrap-input {
+	display: none;
+}
+
+.form-control.form-control_mod {
+	margin-bottom: 10px;
+}
+
+.glyphicon.glyphicon-pencil {
+	float: right;
+	margin-right: 15px;
+	color: #8A5FD8;
+	cursor: pointer;
+}
+
+.glyphicon.glyphicon-remove {
+	float: right;
+	color: #F11C1C;
+	cursor: pointer;
+}
+
+.btn.btn-info {
+	margin-top: 10px;
+}
+
+.input-delete, .input-change {
+	display: none;
 }
